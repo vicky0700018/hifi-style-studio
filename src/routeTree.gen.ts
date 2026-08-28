@@ -33,6 +33,7 @@ import { Route as SiteTopsRouteImport } from './routes/_site.tops'
 import { Route as SiteWesternWearRouteImport } from './routes/_site.western-wear'
 import { Route as SiteWishlistRouteImport } from './routes/_site.wishlist'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminCategoriesRouteImport } from './routes/admin.categories'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminProductsRouteImport } from './routes/admin.products'
 import { Route as SiteProductIdRouteImport } from './routes/_site.product.$id'
@@ -157,6 +158,11 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/admin/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminCategoriesRoute = AdminCategoriesRouteImport.update({
+  id: '/admin/categories',
+  path: '/admin/categories',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
   id: '/admin/login',
   path: '/admin/login',
@@ -201,6 +207,7 @@ export interface FileRoutesByFullPath {
   '/tops': typeof SiteTopsRoute
   '/western-wear': typeof SiteWesternWearRoute
   '/wishlist': typeof SiteWishlistRoute
+  '/admin/categories': typeof AdminCategoriesRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/products': typeof AdminProductsRouteWithChildren
   '/admin/': typeof AdminIndexRoute
@@ -229,6 +236,7 @@ export interface FileRoutesByTo {
   '/tops': typeof SiteTopsRoute
   '/western-wear': typeof SiteWesternWearRoute
   '/wishlist': typeof SiteWishlistRoute
+  '/admin/categories': typeof AdminCategoriesRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/products': typeof AdminProductsRouteWithChildren
   '/': typeof SiteIndexRoute
@@ -260,6 +268,7 @@ export interface FileRoutesById {
   '/_site/tops': typeof SiteTopsRoute
   '/_site/western-wear': typeof SiteWesternWearRoute
   '/_site/wishlist': typeof SiteWishlistRoute
+  '/admin/categories': typeof AdminCategoriesRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/products': typeof AdminProductsRouteWithChildren
   '/_site/': typeof SiteIndexRoute
@@ -292,6 +301,7 @@ export interface FileRouteTypes {
     | '/tops'
     | '/western-wear'
     | '/wishlist'
+    | '/admin/categories'
     | '/admin/login'
     | '/admin/products'
     | '/admin/'
@@ -320,6 +330,7 @@ export interface FileRouteTypes {
     | '/tops'
     | '/western-wear'
     | '/wishlist'
+    | '/admin/categories'
     | '/admin/login'
     | '/admin/products'
     | '/'
@@ -350,6 +361,7 @@ export interface FileRouteTypes {
     | '/_site/tops'
     | '/_site/western-wear'
     | '/_site/wishlist'
+    | '/admin/categories'
     | '/admin/login'
     | '/admin/products'
     | '/_site/'
@@ -360,6 +372,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   SiteRoute: typeof SiteRouteWithChildren
+  AdminCategoriesRoute: typeof AdminCategoriesRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AdminProductsRoute: typeof AdminProductsRouteWithChildren
   AdminIndexRoute: typeof AdminIndexRoute
@@ -535,6 +548,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/categories': {
+      id: '/admin/categories'
+      path: '/admin/categories'
+      fullPath: '/admin/categories'
+      preLoaderRoute: typeof AdminCategoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/login': {
       id: '/admin/login'
       path: '/admin/login'
@@ -634,6 +654,7 @@ const AdminProductsRouteWithChildren = AdminProductsRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   SiteRoute: SiteRouteWithChildren,
+  AdminCategoriesRoute: AdminCategoriesRoute,
   AdminLoginRoute: AdminLoginRoute,
   AdminProductsRoute: AdminProductsRouteWithChildren,
   AdminIndexRoute: AdminIndexRoute,

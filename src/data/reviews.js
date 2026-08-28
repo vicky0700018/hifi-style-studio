@@ -1,0 +1,18 @@
+export const reviews = [
+  { id: "r1", productId: "p1", product: "Wine Embroidered Silk Saree", customer: "Sneha Kulkarni", rating: 5, date: "2026-08-20", text: "Absolutely gorgeous saree, the zari work looks even richer in person.", status: "approved" },
+  { id: "r2", productId: "p1", product: "Wine Embroidered Silk Saree", customer: "Meera Nair", rating: 4, date: "2026-08-12", text: "Lovely colour and drape. Delivery to Viman Nagar was quick.", status: "approved" },
+  { id: "r3", productId: "p6", product: "Ivory Embellished Salwar Suit", customer: "Priya Deshmukh", rating: 5, date: "2026-08-16", text: "Perfect for my sister's engagement. Fit was spot on.", status: "approved" },
+  { id: "r4", productId: "p10", product: "Rose Pink Festive Sharara Set", customer: "Aarti Shinde", rating: 5, date: "2026-08-18", text: "So many compliments at the function! Great quality fabric.", status: "approved" },
+  { id: "r5", productId: "p13", product: "Floral Midi Dress", customer: "Nikita Jain", rating: 4, date: "2026-08-10", text: "Comfortable and breezy for Pune summers.", status: "approved" },
+  { id: "r6", productId: "p21", product: "High Rise Straight Jeans", customer: "Rutuja Pawar", rating: 5, date: "2026-08-08", text: "Best denim fit I have bought in a while. True to size.", status: "approved" },
+  { id: "r7", productId: "p25", product: "Bridal Zari Embroidered Suit", customer: "Tanvi Bhosale", rating: 5, date: "2026-08-06", text: "Bridal quality at a very fair price. Store staff were so helpful.", status: "approved" },
+  { id: "r8", productId: "p17", product: "Satin Party Top", customer: "Ayesha Khan", rating: 4, date: "2026-08-04", text: "Nice sheen and stitching, pairs well with jeans.", status: "approved" },
+  { id: "r9", productId: "p30", product: "Printed Everyday Kurti", customer: "Ishita Gupta", rating: 4, date: "2026-08-02", text: "Great everyday kurti, soft cotton.", status: "approved" },
+  { id: "r10", productId: "p4", product: "Ivory Banarasi Silk Saree", customer: "Sanjana Rao", rating: 5, date: "2026-07-30", text: "A timeless piece, worth every rupee.", status: "approved" },
+  { id: "r11", productId: "p28", product: "Sage Gold Festive Anarkali", customer: "Farheen Shaikh", rating: 5, date: "2026-07-28", text: "Beautiful colour combination, very festive.", status: "pending" },
+  { id: "r12", productId: "p14", product: "Blush Satin Slip Dress", customer: "Rohini Patil", rating: 3, date: "2026-07-25", text: "Pretty dress but I would size up.", status: "pending" },
+  { id: "r13", productId: "p22", product: "Skinny Fit Dark Wash Jeans", customer: "Meera Nair", rating: 4, date: "2026-07-22", text: "Good stretch and holds shape after wash.", status: "approved" },
+  { id: "r14", productId: "p26", product: "Crimson Bridal Lehenga Set", customer: "Aarti Shinde", rating: 5, date: "2026-07-20", text: "Stunning bridal set, the embroidery is stunning.", status: "approved" },
+  { id: "r15", productId: "p7", product: "Powder Blue Chikankari Suit", customer: "Sneha Kulkarni", rating: 4, date: "2026-07-18", text: "Delicate chikankari work, very elegant.", status: "approved" },
+  { id: "r16", productId: "p3", product: "Blush Georgette Party Saree", customer: "Nikita Jain", rating: 4, date: "2026-07-14", text: "Light weight and easy to carry all evening.", status: "hidden" },
+];

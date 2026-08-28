@@ -32,6 +32,7 @@ import { Route as SiteTermsRouteImport } from './routes/_site.terms'
 import { Route as SiteTopsRouteImport } from './routes/_site.tops'
 import { Route as SiteWesternWearRouteImport } from './routes/_site.western-wear'
 import { Route as SiteWishlistRouteImport } from './routes/_site.wishlist'
+import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as SiteProductIdRouteImport } from './routes/_site.product.$id'
 
 const SiteRoute = SiteRouteImport.update({
@@ -148,6 +149,11 @@ const SiteWishlistRoute = SiteWishlistRouteImport.update({
   path: '/wishlist',
   getParentRoute: () => SiteRoute,
 } as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SiteProductIdRoute = SiteProductIdRouteImport.update({
   id: '/product/$id',
   path: '/product/$id',
@@ -177,6 +183,7 @@ export interface FileRoutesByFullPath {
   '/tops': typeof SiteTopsRoute
   '/western-wear': typeof SiteWesternWearRoute
   '/wishlist': typeof SiteWishlistRoute
+  '/admin/login': typeof AdminLoginRoute
   '/product/$id': typeof SiteProductIdRoute
 }
 export interface FileRoutesByTo {
@@ -201,6 +208,7 @@ export interface FileRoutesByTo {
   '/tops': typeof SiteTopsRoute
   '/western-wear': typeof SiteWesternWearRoute
   '/wishlist': typeof SiteWishlistRoute
+  '/admin/login': typeof AdminLoginRoute
   '/': typeof SiteIndexRoute
   '/product/$id': typeof SiteProductIdRoute
 }
@@ -228,6 +236,7 @@ export interface FileRoutesById {
   '/_site/tops': typeof SiteTopsRoute
   '/_site/western-wear': typeof SiteWesternWearRoute
   '/_site/wishlist': typeof SiteWishlistRoute
+  '/admin/login': typeof AdminLoginRoute
   '/_site/': typeof SiteIndexRoute
   '/_site/product/$id': typeof SiteProductIdRoute
 }
@@ -256,6 +265,7 @@ export interface FileRouteTypes {
     | '/tops'
     | '/western-wear'
     | '/wishlist'
+    | '/admin/login'
     | '/product/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -280,6 +290,7 @@ export interface FileRouteTypes {
     | '/tops'
     | '/western-wear'
     | '/wishlist'
+    | '/admin/login'
     | '/'
     | '/product/$id'
   id:
@@ -306,12 +317,14 @@ export interface FileRouteTypes {
     | '/_site/tops'
     | '/_site/western-wear'
     | '/_site/wishlist'
+    | '/admin/login'
     | '/_site/'
     | '/_site/product/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   SiteRoute: typeof SiteRouteWithChildren
+  AdminLoginRoute: typeof AdminLoginRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -477,6 +490,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteWishlistRouteImport
       parentRoute: typeof SiteRoute
     }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_site/product/$id': {
       id: '/_site/product/$id'
       path: '/product/$id'
@@ -543,6 +563,7 @@ const SiteRouteWithChildren = SiteRoute._addFileChildren(SiteRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   SiteRoute: SiteRouteWithChildren,
+  AdminLoginRoute: AdminLoginRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

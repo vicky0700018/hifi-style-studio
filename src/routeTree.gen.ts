@@ -34,6 +34,7 @@ import { Route as SiteWesternWearRouteImport } from './routes/_site.western-wear
 import { Route as SiteWishlistRouteImport } from './routes/_site.wishlist'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminCategoriesRouteImport } from './routes/admin.categories'
+import { Route as AdminCustomersRouteImport } from './routes/admin.customers'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminOrdersRouteImport } from './routes/admin.orders'
 import { Route as AdminProductsRouteImport } from './routes/admin.products'
@@ -164,6 +165,11 @@ const AdminCategoriesRoute = AdminCategoriesRouteImport.update({
   path: '/admin/categories',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminCustomersRoute = AdminCustomersRouteImport.update({
+  id: '/admin/customers',
+  path: '/admin/customers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
   id: '/admin/login',
   path: '/admin/login',
@@ -214,6 +220,7 @@ export interface FileRoutesByFullPath {
   '/western-wear': typeof SiteWesternWearRoute
   '/wishlist': typeof SiteWishlistRoute
   '/admin/categories': typeof AdminCategoriesRoute
+  '/admin/customers': typeof AdminCustomersRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/orders': typeof AdminOrdersRoute
   '/admin/products': typeof AdminProductsRouteWithChildren
@@ -244,6 +251,7 @@ export interface FileRoutesByTo {
   '/western-wear': typeof SiteWesternWearRoute
   '/wishlist': typeof SiteWishlistRoute
   '/admin/categories': typeof AdminCategoriesRoute
+  '/admin/customers': typeof AdminCustomersRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/orders': typeof AdminOrdersRoute
   '/admin/products': typeof AdminProductsRouteWithChildren
@@ -277,6 +285,7 @@ export interface FileRoutesById {
   '/_site/western-wear': typeof SiteWesternWearRoute
   '/_site/wishlist': typeof SiteWishlistRoute
   '/admin/categories': typeof AdminCategoriesRoute
+  '/admin/customers': typeof AdminCustomersRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/orders': typeof AdminOrdersRoute
   '/admin/products': typeof AdminProductsRouteWithChildren
@@ -311,6 +320,7 @@ export interface FileRouteTypes {
     | '/western-wear'
     | '/wishlist'
     | '/admin/categories'
+    | '/admin/customers'
     | '/admin/login'
     | '/admin/orders'
     | '/admin/products'
@@ -341,6 +351,7 @@ export interface FileRouteTypes {
     | '/western-wear'
     | '/wishlist'
     | '/admin/categories'
+    | '/admin/customers'
     | '/admin/login'
     | '/admin/orders'
     | '/admin/products'
@@ -373,6 +384,7 @@ export interface FileRouteTypes {
     | '/_site/western-wear'
     | '/_site/wishlist'
     | '/admin/categories'
+    | '/admin/customers'
     | '/admin/login'
     | '/admin/orders'
     | '/admin/products'
@@ -385,6 +397,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   SiteRoute: typeof SiteRouteWithChildren
   AdminCategoriesRoute: typeof AdminCategoriesRoute
+  AdminCustomersRoute: typeof AdminCustomersRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AdminOrdersRoute: typeof AdminOrdersRoute
   AdminProductsRoute: typeof AdminProductsRouteWithChildren
@@ -568,6 +581,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminCategoriesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/customers': {
+      id: '/admin/customers'
+      path: '/admin/customers'
+      fullPath: '/admin/customers'
+      preLoaderRoute: typeof AdminCustomersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/login': {
       id: '/admin/login'
       path: '/admin/login'
@@ -675,6 +695,7 @@ const AdminProductsRouteWithChildren = AdminProductsRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   SiteRoute: SiteRouteWithChildren,
   AdminCategoriesRoute: AdminCategoriesRoute,
+  AdminCustomersRoute: AdminCustomersRoute,
   AdminLoginRoute: AdminLoginRoute,
   AdminOrdersRoute: AdminOrdersRoute,
   AdminProductsRoute: AdminProductsRouteWithChildren,
